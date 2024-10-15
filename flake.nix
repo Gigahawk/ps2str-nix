@@ -2,8 +2,7 @@
   description = "Devshell and package definition";
 
   inputs = {
-    # Waiting for https://github.com/NixOS/nixpkgs/pull/336611 to be merged
-    nixpkgs.url = "github:Gigahawk/nixpkgs/wiseunpacker";
+    nixpkgs.url = "github:nixos/nixpkgs/?ref=nixos-unstable";
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
