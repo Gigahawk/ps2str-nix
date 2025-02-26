@@ -2,14 +2,18 @@
   description = "Devshell and package definition";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/?ref=nixos-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs/?ref=nixos-unstable";
+    nixpkgs.url = "github:Gigahawk/nixpkgs/?ref=wiseunpacker-all-platforms";
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
+    flake-utils.lib.eachSystem [
+      "x86_64-linux"
+      "i686-linux"  # Doesn't seem to work?
+    ] (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
       version = "1.05";
